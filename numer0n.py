@@ -63,16 +63,3 @@ while eat!=3:
     print("Eat")
     print(bite)
     print("Biteです。\n")
-
-
-# In[10]:
-
-
-eat=0
-
-
-# In[ ]:
-
-
-
-
