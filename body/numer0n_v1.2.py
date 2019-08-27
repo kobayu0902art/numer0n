@@ -21,7 +21,7 @@ def not_duplicate_generator():
         #重複チェック
         if numa!=numb and numb!=numc and numc!=numa:
             flag=0
-    return [num,numa,numb,numc]
+    return num,numa,numb,numc
 
 def same_number(prev,next):
     prev=prev.zfill(3)
@@ -117,13 +117,13 @@ def judge(prev,next):
         same+=1
     if prevc==nexta or prevc==nextb or prevc==nextc:
         same+=1
-    return [eat,bite,same]
+    return eat,bite,same
 
-player=not_duplicate_generator()
+player,playera,playerb,playerc=not_duplicate_generator()
 
 
-com=not_duplicate_generator()
+com,coma,comb,comc=not_duplicate_generator()
 
-result=judge(player,com)
+eat,bite,same=judge(player,com)
 
 
