@@ -118,31 +118,3 @@ def judge(prev,next):
     if prevc==nexta or prevc==nextb or prevc==nextc:
         same+=1
     return eat,bite,same
-
-player,playera,playerb,playerc=not_duplicate_generator()
-
-eat=0
-while eat != 3:
-    com,coma,comb,comc=not_duplicate_generator()
-    eat,bite,same=judge(player,com)
-    eat=0
-    if eat == 3:
-        break
-    if eat+bite==1 and same > 2:
-        pass
-    elif eat+bite==1 and same == 0:
-        pass
-    elif eat+bite==2 and same == 3:
-        pass
-    elif eat+bite==2 and same < 2:
-        pass
-    elif eat+bite==3 and same == 0:
-        pass
-    elif bite==0 and eat == 0:
-        pass
-    elif eat==0 and eat > 0:
-        pass
-    elif eat==1 and eat > 1:
-        pass
-    else:
-        break
