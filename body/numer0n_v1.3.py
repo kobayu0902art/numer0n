@@ -121,28 +121,50 @@ def judge(prev,next):
 
 player,playera,playerb,playerc=not_duplicate_generator()
 
+#test用
+print(player)
+print("\n")
+i=0
+
 eat=0
-while eat != 3:
-    com,coma,comb,comc=not_duplicate_generator()
-    eat,bite,same=judge(player,com)
-    eat=0
+redoflag=0
+while 1:
     if eat == 3:
         break
-    if eat+bite==1 and same > 2:
-        pass
-    elif eat+bite==1 and same == 0:
-        pass
-    elif eat+bite==2 and same == 3:
-        pass
-    elif eat+bite==2 and same < 2:
-        pass
-    elif eat+bite==3 and same == 0:
-        pass
-    elif bite==0 and eat == 0:
-        pass
-    elif eat==0 and eat > 0:
-        pass
-    elif eat==1 and eat > 1:
-        pass
-    else:
-        break
+    while redoflag==0:
+        redoflag=0
+        com,coma,comb,comc=not_duplicate_generator()
+        eat,bite,same=judge(player,com) 
+        if eat == 3:
+            break
+        if eat+bite==1 and same > 2:
+            pass
+        elif eat+bite==1 and same == 0:
+            pass
+        elif eat+bite==2 and same == 3:
+            pass
+        elif eat+bite==2 and same < 2:
+            pass
+        elif eat+bite==3 and same == 0:
+            pass
+        elif bite==0 and eat == 0:
+            pass
+        elif eat==0 and eat > 0:
+            pass
+        elif eat==1 and eat > 1:
+            pass
+        else:
+            redoflag=1
+    #test用
+    print(com)
+    print("をコールします")
+    print(eat)
+    print("eat")
+    print(bite)
+    print("biteです\n")
+    i+=1
+    
+#test用
+print(i)
+print("回かかりました")
+input("enter")
