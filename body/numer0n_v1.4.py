@@ -93,8 +93,8 @@ com=not_duplicate_generator()
 #eat,bite判定
 eat,bite,same=judge(player,com)
 
-#ここからループ？
 prevcom=com
 
-com=not_duplicate_generator()
+
+com=strategy(prevcom,com)
 
