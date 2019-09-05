@@ -1,8 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import random
-
+import time
 
 def not_duplicate_generator():
     #重複チェック用フラグ
@@ -85,41 +82,49 @@ def strategy(prevcom,com):
             redoflag=1
     return com
 
-
-player=not_duplicate_generator()
-
-#test用
-print(player)
-print("\n")
-
-i=0
-
-#com初回call
-com=not_duplicate_generator()
-#eat,bite判定
-eat,bite,same=judge(player,com)
-
-#test用
-print("com")
-print(com)
-
-
-while eat!=3:
-    prevcom=com
-
-    com=strategy(prevcom,com)
-
+def one_point_four():
+    timesfour=0
+    tfour=time.time()
+    import random
+    player=not_duplicate_generator()
+    i=0
+    #com初回call
+    com=not_duplicate_generator()
+    #eat,bite判定
     eat,bite,same=judge(player,com)
+    while eat!=3:
+        prevcom=com
+        com=strategy(prevcom,com)
+        eat,bite,same=judge(player,com)
+        timesfour+=1
+    tfour=time.time()-tfour
+    return tfour,timesfour
 
-    #test用
-    print(eat)
-    print("eat")
-    print(bite)
-    print("bite")
+import openpyxl as px
+wb = px.Workbook()
+name=input("bookname\n")
+vs="1.4_"
+name=vs+name+".xlsx"
+wb.save(name)
+ws=wb.active
+ws.cell(row=1,column=1,value="times(ver1.4)")
+ws.cell(row=1,column=2,value="time(ver1.4)")
 
-    i+=1
+ceil=int(input("回数\n"))
 
-#test用
-print(i)
-print("回かかりました")
-input("enter")
+row_num=2
+count=0
+while count < ceil:
+    tfour,timesfour=one_point_four()
+    ws.cell(row=row_num,column=1,value=timesfour)
+    ws.cell(row=row_num,column=2,value=tfour)
+    row_num+=1
+    count+=1
+    if count % 10000 ==0:
+        print(count)
+        print("try end")
+
+wb.save(name)
+input("operation succeeded")
+
+#prevcomとplayerのjudge結果を見て、strategyに適したcomを出さなきゃいけない
