@@ -89,8 +89,7 @@ def strategy(prevcom,com):
 player=not_duplicate_generator()
 
 #test用
-print(player)
-print("\n")
+print(player,"\n")
 
 i=0
 
@@ -100,8 +99,7 @@ com=not_duplicate_generator()
 eat,bite,same=judge(player,com)
 
 #test用
-print("com")
-print(com)
+print("com",com)
 
 
 while eat!=3:
@@ -112,14 +110,10 @@ while eat!=3:
     eat,bite,same=judge(player,com)
 
     #test用
-    print(eat)
-    print("eat")
-    print(bite)
-    print("bite")
+    print(eat,"eat",bite,"bite")
 
     i+=1
 
 #test用
-print(i)
-print("回かかりました")
+print(i,"回かかりました")
 input("enter")
